@@ -26,6 +26,13 @@ file = 'attempts.csv'
 stats = []
 time_threshold = 60 * 60 * 24
 tried_threshold = 0.05
+str_in = input("Enter time span in hours (blank for default of 24hr): ")
+if str_in:
+    time_threshold = 60 * 60 * float(str_in)
+str_in = input("Enter threshold for attempts as a percentage: (leave blank default of 5% of total): ")
+if str_in:
+    str_in = str_in.replace('%', '')
+    tried_threshold = int(str_in) / 100
 total_done = 0
 with open(file, newline='') as csvfile:
     readlines = csv.reader(csvfile, delimiter=',', quotechar='|')
@@ -64,13 +71,6 @@ with open(file, newline='') as csvfile:
 sortedstats = list(stats)
 sortedstats.sort(key=myFunc, reverse=True)
 
-str_in = input("Enter time span in days (blank for default of 24hr): ")
-if str_in:
-    time_threshold = 60 * 60 * float(str_in)
-str_in = input("Enter threshold for attempts as a percentage: (leave blank default of 5% of total): ")
-if str_in:
-    str_in = str_in.replace('%', '')
-    tried_threshold = int(str_in) / 100
 time_threshold_mins = int(time_threshold / 60)
 time_threshold_hrs = int(time_threshold_mins / 60)
 timestring = str(time_threshold_mins) + " minutes."
