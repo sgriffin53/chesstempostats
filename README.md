@@ -8,3 +8,11 @@ Use:
 Copy your chess tempo history CSV file to the same folder as the script and rename it to "attempts.csv"
 
 Run "python main.py"
+
+Script running
+
+![Screenshot](https://i.imgur.com/C0fR14v.png)
+
+Screenshot shown when someone dies
+
+![Screenshot](https://i.imgur.com/vBotJ8n.png)
